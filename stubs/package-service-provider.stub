@@ -1,0 +1,44 @@
+<?php
+
+namespace {{ root_namespace }};
+
+use Illuminate\Support\ServiceProvider;
+
+class {{ package_studly }}ServiceProvider extends ServiceProvider
+{
+    public function register(): void
+    {
+        if (file_exists(__DIR__ . '/../config/{{ package_snake }}.php')) {
+            $this->mergeConfigFrom(
+                __DIR__ . '/../config/{{ package_snake }}.php',
+                '{{ package_snake }}'
+            );
+        }
+    }
+
+    public function boot(): void
+    {
+        if ($this->app->runningInConsole()) {
+            if (file_exists(__DIR__ . '/../config/{{ package_snake }}.php')) {
+                $this->publishes([
+                    __DIR__ . '/../config/{{ package_snake }}.php' => config_path('{{ package_snake }}.php'),
+                ], '{{ package_snake }}-config');
+            }
+
+            if (is_dir(__DIR__ . '/../database/migrations')) {
+                $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+            }
+
+            $commands = [];
+
+            if (class_exists('{{ root_namespace }}\\Commands\\ExampleCommand')) {
+                $commands[] = '{{ root_namespace }}\\Commands\\ExampleCommand';
+            }
+
+            if (! empty($commands)) {
+                $this->commands($commands);
+            }
+        }
+    }
+}
+

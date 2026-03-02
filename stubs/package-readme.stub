@@ -1,0 +1,37 @@
+## {{ package_studly }}
+
+**Package**: `{{ vendor }}/{{ package }}`  
+**Description**: {{ description }}
+
+### Installation
+
+Require the package via Composer:
+
+```bash
+composer require {{ vendor }}/{{ package }}
+```
+
+Laravel will auto-discover the service provider:
+
+- `{{ root_namespace }}\\{{ package_studly }}ServiceProvider`
+
+### Configuration
+
+If you generated a config file, you can publish it with:
+
+```bash
+php artisan vendor:publish --tag=\"{{ package_snake }}-config\"
+```
+
+### Testing
+
+Run the tests:
+
+```bash
+composer test
+```
+
+### License
+
+The MIT License (MIT). Please see the `LICENSE` file for more information.
+

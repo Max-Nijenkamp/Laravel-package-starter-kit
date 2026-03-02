@@ -1,0 +1,20 @@
+<?php
+
+namespace {{ root_namespace }}\Commands;
+
+use Illuminate\Console\Command;
+
+class ExampleCommand extends Command
+{
+    protected $signature = '{{ package_kebab }}:example';
+
+    protected $description = 'Example command for {{ vendor }}/{{ package }}.';
+
+    public function handle(): int
+    {
+        $this->info('This is the example command from {{ vendor }}/{{ package }}.');
+
+        return self::SUCCESS;
+    }
+}
+

@@ -1,0 +1,17 @@
+<?php
+
+return [
+    /*
+    |--------------------------------------------------------------------------
+    | {{ package_studly }} configuration
+    |--------------------------------------------------------------------------
+    |
+    | This is the default configuration for the {{ vendor }}/{{ package }} package.
+    |
+    */
+
+    'enabled' => true,
+
+    // Add your configuration options here...
+];
+
